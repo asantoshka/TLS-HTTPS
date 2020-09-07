@@ -1,20 +1,22 @@
-So before starting with this activity, we need to setup few things. Below are achievable with simple google search.
+# Configuring Nginx server and installing self signed certificate on it
 
-1. Virtual box 
+So before starting with this activity, we need to setup few things. which are achievable with simple google search.
+
+1. Virtual box installation
 2. Ubuntu machine in virtual box 
-TODO:
+3. The Ubuntu Network interface is configured with bridged adapter.
+4. [Need to add the ubuntu ip to the host file of the host machine](hostfile_edit.md).
 
 Rest we will do on the go.
 
 What we are going to do:
 1. Installing Nginx web server on the Ubuntu host.
 2. Enabling SSL on it.
-TODO:
+3. Generating self signed certificate
+4. Installing it on the web server
+5. Redirecting all the http request to https
 
-We will be performing all testing related to the webpage  from the host machine, so we need to keep few things in mind.
-
-1. The Ubuntu Network interface is configured with bridged adapter.
-2. Need to add the ubuntu ip to the host file of the host machine.
+We will be performing all testing related to the webpage from the host machine.
 
 First we will install the Nginx on our ubuntu host. To do so we will run the below command.
 
@@ -263,7 +265,26 @@ server {
 
 Now we can restart the nginx server by using `systemctl restart nginx` command and try to acces the https://asantoshka.online.
 
+## Redirection of HTTP to HTTPS
 
-https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-18-04
+Now we have configured our server to respond for https request, but still http requests are getting responded and that is not encrypted. We can redirect all the http request to https, so that 100% communication will be encrypted.
+
+To setup http to https redirection, we have to add the below code to the `/etc/nginx/sites-available/asantoshka.online` file.
+
+```
+return 301 https://server_name$request_uri;
+```
+
+And we will remove the below code.
+
+```
+location / {
+        try_files $uri $uri/ =404;
+}
+```
+
+By adding `return 301 https://server_name$request_uri` code we are asking server to respond browser with 301 code which means permanent redirection to `https://server_name$request_uri`.
+
+Thanks for reading :)
 
 

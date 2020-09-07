@@ -149,7 +149,13 @@ To get our certificate signed by a Certificate authority. we have to generate a 
   
 2. Public Key
 
-After that CA will take the CSR and will generate the certificate containing above details.
+After that CA will take the CSR and will generate the certificate containing above details and will provide that to us.
+
+### If we are importing only server certificate to our server, is that okay ? 
+
+The answer is no. Why? Because, we are not providing the intermediate certificate. In this case even if we are not putting the intermediate certificate we are not going to get any error from Google chrome browser, but it is not same for Firefox browser. 
+
+When we open a website from chrome browser, after receiving the server certificate chrome checks Authority Info (AIA) and gets the intermediate certificate. But same doesn't happen for chrome and some other browsers as well. So we need to add the intermediate certificate as well. We can create a chain of intermediate and server certificate and we can install that in the server. 
 
 Let's read more about [SSL and TLS](./SSL_TLS.md) protocols which are used in these certificates.
 
