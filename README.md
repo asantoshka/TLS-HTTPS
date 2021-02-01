@@ -2,7 +2,9 @@
 
 HTTP is not encrypted and HTTPS is encrypted or HTTPS is secure and HTTP is insecure. Is that all about HTTPS and HTTP ? Definitely NO. There are much more than this. 
 
-To be secure, a site has to be well configured, which means that it must have the A grade. In addition, it must not be vulnerable to any of the two currently known attacks against SSL (`Insecure Renegotiation` and `the BEAST attack`).
+To be secure, a site has to be well configured, which means that it must have the A grade. In addition, it must not have any other vulnerabilities.
+
+Currently There are two known attacks against SSL (`Insecure Renegotiation` and `the BEAST attack`).
 
 Certificates have fingerprints to perform intigrity check.
 
