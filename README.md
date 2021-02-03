@@ -2,9 +2,7 @@
 
 HTTP is not encrypted and HTTPS is encrypted or HTTPS is secure and HTTP is insecure. Is that all about HTTPS and HTTP ? Definitely NO. There are much more than this. 
 
-To be secure, a site has to be well configured, which means that it must have the A grade. In addition, it must not have any other vulnerabilities.
-
-Currently There are two known attacks against SSL (`Insecure Renegotiation` and `the BEAST attack`).
+To be secure, a site has to be well configured, which means that it must have the A grade. In addition, it must not be vulnerable to any of the two currently known attacks against SSL (`Insecure Renegotiation` and `the BEAST attack`).
 
 Certificates have fingerprints to perform intigrity check.
 
@@ -123,7 +121,7 @@ Now our browser trusted the end user server certificate, but how it will trust t
 
 Again, how the browser will trust root CA certificate ? The root CA certificate is a self signed certificate and it is trusted by the browser beacuse it comes with the OS. When we recieve the certificate, first browser looks, if the root CA certificate is there in the OS certificate database. The certifiacte signature can be verified using its own public key as this is a self signed certificate. We can check the windows certificate database `Win+r` -> `certmgr.msc`.
 
-![Chain of trust](chain_of_trust.PNG)
+![Chain of trust](img/chain_of_trust.PNG)
 
 >[Geocertssl](https://www.geocerts.com/ssl-checker), [sslshopper](https://www.sslshopper.com) and [ssllabs](https://www.ssllabs.com) are few of the online certificate verifying tools.
 

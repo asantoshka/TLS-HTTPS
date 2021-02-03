@@ -6,7 +6,7 @@ If for some IP address there is no DNS and we want to give some DNS entry for ou
 
 Step 1: Open notepad in Administrator permission. To do so go to Windows search and search for notepad. Right click on Windows and click on Run as administrator.
 
-![](./notepad.png)
+![](./img/notepad.png)
 
 Step 2: After that in files click open and go to the following directory c:\Windows\System32\Drivers\etc\hosts. If the file is not visible make file type as `all files`.
 

@@ -17,13 +17,13 @@ TLS 1.2 |2008|
 TLS 1.3 |2018|
 
 
-![SSL TLS](./SSL_TLS.PNG)
+![SSL TLS](./img/SSL_TLS.PNG)
 
 From above details we can see that, All SSL protocols are deprecated. So we should not call these certificates as SSL certificates anymore.
 
 ## Establishing TLS session
 
-![TLS Session](./TLS_session.PNG)
+![TLS Session](./img/TLS_session.PNG)
 
 TLS session are established in few steps.
 
@@ -37,27 +37,27 @@ TLS session are established in few steps.
 
 When we try to access any of the HTTPS sites and capture the traffic using wireshark, We get the below traffic capture.
 
-![Wireshark capture](./Wireshark_1.png)
+![Wireshark capture](./img/Wireshark_1.png)
 
 It starts with 3 way handshake as it is a TCP communication. After that Client send the `Client hello` request to server. It contains the cipher suites, which it supports.
 
-![Client Hello](./Wireshark_2.PNG)
+![Client Hello](./img/Wireshark_2.PNG)
 
 To `client Hello` server replies with a `Server Hello`. In that it says, in this communication which cipher suite is going to be used.
 
-![Server Hello](./Wireshark_3.PNG)
+![Server Hello](./img/Wireshark_3.PNG)
 
 After that, Server sends the certificate chain with all details. It contains the validity of the certificate and all other details. Once the certificate is recieved, the client verifies the certificate. The server sends only Intermediate and server certificate but not root certificate. The root certificate is present in the client machine for verification as a trusted certificate.
 
-![Server Hello](./Wireshark_4.PNG)      
+![Server Hello](./img/Wireshark_4.PNG)      
 
 After that Client sends the cipher suite specs which contains the algorithm and encrypted handshake message.
 
-![Server Hello](./Wireshark_6.PNG)
+![Server Hello](./img/Wireshark_6.PNG)
 
 Now onwards encrypted communication happens between the server and client mentioned as `application data`.
 
-![Server Hello](./Wireshark_8.PNG)
+![Server Hello](./img/Wireshark_8.PNG)
 
 Now two below questions arise: 
 1. How was the key for data encryption was generated ?
@@ -70,6 +70,8 @@ A random key can be generated and can be shared using RSA algorithm. The client 
 But this is not reliable because the private key and public key remains same until it is renewed. So to come over of this problem, we are using [Diffie Hellman key exchange](https://www.comparitech.com/blog/information-security/diffie-hellman-key-exchange/) algorithm for generating the key.
 
 By using this algorithm the key is generated on server and client side but not shared in between them. So it is considered to be more secure.
+
+Let's get started with [Openssl](OpenSSL.md) and some [Practical](Practical.md)
 
 
 
