@@ -1,3 +1,7 @@
+# Configuring private key and public key with openssl
+
+[Openssl](OpenSSL.md)
+
 # Configuring Nginx server and installing self signed certificate on it
 
 So before starting with this activity, we need to setup few things. which are achievable with simple google search.

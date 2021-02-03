@@ -71,7 +71,7 @@ But this is not reliable because the private key and public key remains same unt
 
 By using this algorithm the key is generated on server and client side but not shared in between them. So it is considered to be more secure.
 
-Let's get started with [Openssl](OpenSSL.md) and some [Practical](Practical.md)
+Let's get started with some [Practical](Practical.md)
 
 
 
